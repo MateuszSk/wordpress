@@ -1,0 +1,847 @@
+/*
+Theme Name: Test Portfolio
+Author: Gdzies
+Author URI: http://www.mateuszsk.pl
+Version: 1.0
+*/
+
+
+/*
+01. - General
+02. - Navbar (Header.php)
+03. - Footer
+	 - Widgets
+04. - Index (posts list)
+     - Content (default Post)
+      - Pagination
+     Posts Formats:
+     - Content Gallery
+     - Content Video
+     - Content Aside
+     - Content link
+05. - Front Page
+     - Section Home
+     - Section Portfolio
+     - Section Skills
+     - Section Blog
+06. - Post Single
+	 - Content-single
+07. - Sidebar
+08. - Comments
+09. - Search
+10. - Page
+11. - 404
+12. - Archive
+13. - Category
+	 - Default
+	 - Blog
+	 - Skills
+	 - Portfolio
+14. - Page (default page loyout when user create)
+15. - Search form (searchform.php)
+16. - Search results (search.php)
+17. - contact
+
+*/
+
+
+// Colors
+$blue:#71a0d5;
+$green:#cce5a4;
+$purpule:#ca9cd7;
+$light-grey:#e3e3e3;
+
+$light-blue:#7fb4f0;
+
+$basic-color:$blue;
+$hover-color:$light-blue; 
+
+// 01. -General Styles
+
+@import 'normalize';
+
+
+html,body 
+{
+	margin:0;
+	padding:0;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+}
+
+*, *:before, *:after 
+{
+  	-webkit-box-sizing: inherit;
+  	-moz-box-sizing: inherit;
+  	box-sizing: inherit;
+}
+
+.gora // Main container
+{
+	margin-top:31vh;
+	margin-bottom:40vh;
+	padding-bottom:50px;
+	position:relative;
+	z-index:10;
+	background: white;
+	transition:0.5s all;
+}
+a.button // Custom Button
+{	
+
+		display: inline-block;
+		margin-top: 25px;
+		background: $basic-color;
+		padding:15px 20px;
+		text-align: center;
+		text-decoration:none;
+		color:white;
+		font-weight: bold;
+		transition:0.3s all;
+
+		&:hover
+		{
+			padding:15px 25px;
+			background: $hover-color;
+
+		}
+
+}
+
+// 02. - Navbar
+nav.navbar
+{
+	border:none;
+	height:30vh;
+	margin-bottom:0;
+	z-index:9999;
+	background: $basic-color;
+	transition:0.5s all;
+	
+	
+
+	.navbar-brand
+	{
+	width:20%;
+	color:white;
+	font-weight:bold;
+	height:100%;
+	line-height:30vh;
+	padding:0 15px;
+	transition:0.5s all;
+
+	}
+	.navbar-header
+	{
+		button.navbar-toggle
+		{
+			margin-top:12vh;
+			transition: 0.5s all;
+			border:1px solid white;
+			border-radius:0;
+			transition: 0.5s all;
+
+			
+
+			span.icon-bar
+			{
+				height:1px;
+				background:white;
+			}
+		}
+
+	}
+	ul.nav 
+	{
+		width:80%;
+		>li 
+		{
+			
+			height: 100%;
+			>a
+			{
+				
+				min-width:10%;
+				color:white;
+				padding:0;
+				margin:0 20px;
+				font-weight: bold;
+				line-height: 30vh;
+				text-align: center;
+				transition:0.5s all;
+				
+				
+				&:active , &:focus , &:hover
+				{
+					background: none;
+					text-decoration: underline;
+				}
+
+			}
+		}
+		.current-menu-item
+		{
+			background:$hover-color;
+		}
+
+		.dropdown-menu
+		{ 
+			padding-left:0;
+			border:none;
+			position:absolute;
+			top:75%;
+			left:20px;
+			box-shadow:2px 2px 10px grey;
+			transition: 0.5s all;
+		}
+	}
+
+}
+nav.tiny
+{
+	height:10vh;
+
+	.navbar-brand
+	{
+	height:100%;
+	line-height:10vh;
+	padding:0 15px;
+	}
+	.navbar-header
+	{
+		button.navbar-toggle
+		{
+			margin-top:2vh;
+
+		}
+	}
+
+	ul.nav 
+	{
+		>li 
+		{
+			
+			height: 90%;
+			>a
+			{
+
+				padding:0;
+				margin:0 20px;
+				line-height: 10vh;
+				text-align: center;
+				
+			}
+		}
+	}
+	.dropdown-menu
+		{ 
+			position: absolute;
+			top:100%;
+		}
+}
+
+// 03. - Footer
+
+footer
+{
+	position:fixed;
+	bottom:0;
+	left:0;
+	min-height:40vh;
+	z-index:1;
+	text-align:center;
+	width:100%;
+
+	
+	.container
+	{
+		display: inline-block;
+
+	}
+
+	.col-md-4
+	{
+		height:40vh;
+		padding:20px;
+	}
+	.col-md-12
+	{
+		border-top:5px solid $basic-color;
+		height:100%;
+
+		
+	}
+}
+
+
+// 04. - Index
+section.posts 
+{
+	.box
+	{
+		padding-bottom:25px;
+		margin-top:25px;
+	}
+	div.img
+	{
+		float: left;
+		width:300px;
+		height:150px;
+		background-image:url();
+    	background-size:cover;
+    	background-position:center center;
+	}
+	.post-content
+	{
+		margin-left:320px;
+		padding-bottom:20px;
+
+		&:after
+		{
+			content:'';
+			display:block;
+			clear:both;
+		}
+	}
+}
+
+// Pagination
+.navigation 
+{
+	text-align:center;
+}
+.navigation>ul 
+{
+	display:inline-block;
+}
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+	color: white;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.navigation li {
+	display: inline;
+}
+
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+	background-color: $basic-color;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 12px;
+	padding: 0.75rem;
+}
+.navigation li a:hover
+{
+	background: $hover-color;
+}
+
+.navigation li.active a {
+	background-color: grey;
+}
+
+
+// 05. - Front Page
+
+
+section.home
+{
+	height:100vh;
+	text-align:center;
+
+	.logo
+	{
+		height:50px;
+		background-image:url(../images/logo.png);
+		background-size:contain;
+		background-position:center;
+		background-repeat:no-repeat;
+	}
+	h2
+	{
+		text-align: center;
+		margin-bottom: 50px;
+	}
+	
+}
+section.portfolio
+{
+	min-height:100vh;
+	padding-top:20vh;
+	text-align:center;
+	a:hover
+	{
+		text-decoration: none;
+	}
+	.col-md-12
+	{
+		position: relative;
+		height:30vh;
+		margin:50px 0;
+		padding:0;
+		overflow: hidden;
+
+		div.img 
+		{
+			background-image:url();
+	    	background-size:cover;
+	    	background-position:center center;
+			background-repeat:no-repeat;
+			height:100%;
+			width:100%;
+			transition: 500ms all;
+			position: relative;
+		
+		}
+
+		.title
+		{
+			margin:0;
+			position:relative;
+			top:-70px;
+			left:20%;
+			background: white;
+			color:black;
+			
+			height:70px;
+			width:60%;
+			line-height:70px;
+		}
+
+		&:hover
+		{
+			div.img 
+			{
+				transform: scale(1.1,1.1);
+			}
+
+					
+		}
+	}
+}
+
+section.blog
+{
+	min-height:100vh;
+	text-align: center;
+	padding-top:10vh;
+	.row
+	{
+	margin:0;
+	margin-bottom:30px;
+
+	}
+	.post
+	{
+		min-height:20vh;
+		margin-bottom: 15px;
+		text-align: left;
+	}
+	
+	.col-md-7 
+	{
+		border-left:none;
+	}
+	>.row>.col-md-6
+	{
+		margin: 50px 0;
+	}
+	.col-md-5
+	{
+		min-width: 200px;
+		min-height: 150px;
+
+	}
+	div.img
+	{
+		width:100%;
+		height:130px;
+		background-image:url();
+    	background-size:cover;
+    	background-position:center center;
+	}
+	h3
+	{
+		margin:0;
+		a 
+		{
+			color:grey;
+		}
+	}
+	
+}
+
+section.skills
+{
+	min-height:100vh;
+	padding-top:10vh;
+	text-align:center;
+
+	.col-md-12
+	{
+
+		min-height: 20vh;
+		margin-bottom: 20px;
+		text-align: center;
+		margin-top: 40px;
+		padding:15px;
+		transition: 0.5s all;
+		position:relative;
+		
+
+
+	}
+	.progress-bar
+	{
+
+		width:90%;
+		height:20px;
+		position:absolute;
+		bottom:0;
+		background: $light-grey;
+		border-radius:10px;
+
+		.pasek
+		{
+			width: 20%;
+			height: 100%;
+			border-radius:10px;
+			color:white;
+			background: #b5b5b5;
+
+		}
+		
+	}
+	div.img 
+	{
+		margin:0;
+		width:100%;
+		height:50px;
+		background-size:contain;
+    	background-position:center center;
+    	background-repeat:no-repeat;
+
+	}
+	p 
+	{
+		margin-top: 20px;
+		min-height:60px;
+	}
+}
+
+// 06. - Single-Post
+section.single
+{
+	margin-bottom:20vh;
+
+	.box
+	{
+		padding-bottom:25px;
+	}
+	div.img
+	{
+		width:100%;
+		height:300px;
+		background-image:url();
+    	background-size:cover;
+    	background-position:top center;
+	}
+	.post-content
+	{
+
+		width:90%;
+		margin:0 auto;
+		position:relative;
+		top:-100px;
+		background: white;
+		padding:20px;
+	}
+	div.pagination
+	{
+		width:500px;
+		height:200px;
+
+	}
+}
+
+
+
+// 14. - Category
+// Skills
+section.category-skills
+{
+	min-height:100vh;
+
+	.col-md-12
+	{
+
+		min-height: 30vh;
+		margin-bottom: 20px;
+		text-align: center;
+		margin-top: 40px;
+		padding:15px;
+		transition: 0.5s all;
+		position:relative;
+
+	}
+	div.img 
+	{
+		margin:0;
+		width:100%;
+		height:50px;
+		background-size:contain;
+    	background-position:center center;
+    	background-repeat:no-repeat;
+	}
+	p 
+	{
+		margin-top: 20px;
+		min-height:60px;
+	}
+}
+// Portfolio
+section.category-portfolio
+{
+	min-height:100vh;
+	text-align:center;
+
+	.col-md-12
+	{
+		position: relative;
+		height:30vh;
+		margin:50px 0;
+		padding:0;
+		overflow: hidden;
+
+		div.img 
+		{
+			background-image:url();
+	    	background-size:cover;
+	    	background-position:center center;
+			background-repeat:no-repeat;
+			height:100%;
+			width:100%;
+			transition: 500ms all;
+			position: relative;
+		
+		}
+
+		.title
+		{
+			margin:0;
+			position:relative;
+			top:-70px;
+			left:20%;
+			background: white;
+			height:70px;
+			width:60%;
+			line-height:70px;
+		}
+
+		&:hover
+		{
+			div.img 
+			{
+				transform: scale(1.1,1.1);
+			}
+					
+		}
+	}
+}
+// 15. - Search form (searchform.php)
+
+form.search-form
+{
+	min-width:20%;
+	line-height:30vh;
+	float:right;
+	transition:0.5s all;
+	margin-left:20px;
+
+	input.search-field
+	{
+		background: $basic-color;
+		border:none;
+		color:white;
+		padding:10px;
+		border:1px solid white;
+
+		&:focus
+		{
+			background: $hover-color;
+			border:none;
+			outline: none;
+			padding:11px;
+		}
+	}
+	input.search-submit
+	{
+		background: white;
+		color:black;
+		padding:10px;
+		transition:0.5s all;
+		border:none;
+	}
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:    white;
+	   opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:    white;
+	   opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:    white;
+	}
+}
+nav.tiny
+{
+	form.search-form
+	{
+		line-height: 10vh;
+	}
+}
+
+// 17. - contact
+
+
+section.contact
+{
+	margin-top:31vh;
+	form 
+	{
+		background: white;
+		padding:10px;
+		border-radius:5px;
+		border:1px solid grey;
+
+		p,span,input,textarea
+		{
+			margin:0;
+			display: inline-block;
+			width:100%;
+		}
+		span,input,textarea
+		{
+			padding:8px;
+		}
+		p 
+		{
+			margin-top:3px;
+		}
+		input[type="submit"]
+		{
+			background: $basic-color;
+			color:white;
+			box-shadow:none;
+			font-weight:bold;
+			border:none;
+			border-radius:5px;
+			transition: 0.5s background;
+
+			&:hover 
+			{
+				background: $hover-color;
+			}
+		}
+	}
+	::-webkit-input-placeholder {
+	   color: black;
+	}
+}
+
+
+
+@media (max-width: 768px)
+{ 
+	
+
+	form.search-form
+	{
+		display: none;
+	}
+	div.collapse.navbar-collapse
+	{
+		padding:0 !important;
+	}
+	nav.navbar 
+	{
+		padding:0;
+		.container 
+		{
+			padding:0;
+		}
+		.navbar-brand
+		{
+
+		margin-left:15px;
+
+		}
+		.navbar-header
+		{
+			button.navbar-toggle
+			{
+				margin-right:30px;
+			}
+
+		}
+		ul.nav 
+		{
+		
+		background: $basic-color;
+		margin:0;
+		width: 100%;
+		>li 
+		{
+			
+			height: 100%;
+			>a
+			{
+				
+				min-width:10%;
+				padding:0;
+				margin:0;
+				font-weight: bold;
+				line-height:10vh;
+				text-align: center;
+				transition:0.5s all;
+				
+				
+				&:active , &:focus , &:hover
+				{
+					background: none;
+					text-decoration: underline;
+				}
+
+			}
+		}
+		.current-menu-item
+		{
+			background:$hover-color;
+		}
+
+		.dropdown-menu
+		{ 
+			padding-left:0;
+			border:none;
+			position:absolute;
+			top:75%;
+			left:20px;
+			box-shadow:2px 2px 10px grey;
+			transition: 0.5s all;
+		}
+	}
+		
+	}
+}
+
